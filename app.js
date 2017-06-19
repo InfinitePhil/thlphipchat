@@ -14,8 +14,7 @@ app.post("/link", (req, res) => {
 var sn = "https://umnprd.service-now.com/nav_to.do?uri=incident.do?sysparm_query=number="
 var send = sn.concat(message)
   
-  res.json({ color: 'green', message: `${send}', notify: 'false',
-    message_format: "html"})
+  res.json({ color: 'green', message: `${name} entered the following text: ${message}`, notify: 'false', message_format: 'html'})
 })
 
 const port = Number(process.env.PORT || 7000)
