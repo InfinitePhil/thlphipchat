@@ -1,26 +1,21 @@
-// Dependencies
-var bodyParser = require('body-parser');
-var express = require('express');
+const bodyParser = require('body-parser')
+const express    = require('express')
 
-// Calling the Express module
-var app = express();
+const app = express()
+app.use(bodyParser.json()) 
+app.use(express.static('public'))
 
-// Using the JSON function of the body-parser module
-app.use(bodyParser.json()); 
-
-// Route that Hipchat enters
-app.post("/link", function(req, res) {
-
-  // Gets the message value from the Hipchat JSON webhook
-  var message = req.body.item.message.message.image;
+app.post("/hipchatbot", (req, res) => {
+  const message     = req.body.item.message.message
+  const name        = req.body.item.message.from.name
+ 
   
-  // Message posted back to Hipchat
-  res.json({ message: `https://xxx.service-now.com/nav_to.do?uri=incident.do?sysparm_query=number=${message}` })
+  res.json({ message: `${name} entered the following text: ${message}` })
+})
 
-});
+const port = Number(process.env.PORT || 7000)
+if(!module.parent) { 
+  app.listen(port)
+}
 
-// Giving the app a port number to listen on - use 3000 by default 
-var port = Number(process.env.PORT || 3000);
-
-// Starts the app
-app.listen(port);
+module.exports = app
