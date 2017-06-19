@@ -13,8 +13,10 @@ app.post("/link", function(req, res) {
  
 var sn = "https://umnprd.service-now.com/nav_to.do?uri=incident.do?sysparm_query=number="
 var send = sn.concat(body)
+
+var link = "<a href='" + send + "> INC" + body + "</a>"
   
-  res.json({ color: 'green', message: `<a href=" ${send} ">Link</a>`, notify: 'false', message_format: 'html'})
+  res.json({ color: 'green', message: `${link}`, notify: 'false', message_format: 'html'})
 })
 
 const port = Number(process.env.PORT || 7000)
