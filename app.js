@@ -12,7 +12,7 @@ app.post("/link", (req, res) => {
  
 
   
-  res.json({ color: green, message: `https://umnprd.service-now.com/nav_to.do?uri=incident.do?sysparm_query=number= ${message}`})
+  res.json({ color: 'green', message: `https://umnprd.service-now.com/nav_to.do?uri=incident.do?sysparm_query=number= ${message}`})
 })
 
 const port = Number(process.env.PORT || 7000)
