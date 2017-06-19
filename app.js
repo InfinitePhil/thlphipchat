@@ -19,7 +19,7 @@ var send = sn.concat(cut)
 var link = "&lt;a href=&quot;" + send + "&quot;&gt;" + cut + "&lt;/a&gt;"
            
  
-  res.json({ color: 'green', message: `<a href="https://www.w3schools.com/html/"> ${cut} </a>`, notify: 'false'})
+  res.json({ color: 'green', message: `<a href="https://umnprd.service-now.com/nav_to.do?uri=incident.do?sysparm_query=number=${cut}"> ${cut} </a>`, notify: 'false'})
 })
 
 const port = Number(process.env.PORT || 7000)
