@@ -10,7 +10,9 @@ app.post("/link", (req, res) => {
   const message     = req.body.item.message.message.message
   const name        = req.body.item.message.from.name
  
-const send = 'https://umnprd.service-now.com/nav_to.do?uri=incident.do?sysparm_query=number=' + message
+
+var sn = "https://umnprd.service-now.com/nav_to.do?uri=incident.do?sysparm_query=number="
+var send = sn.concat(message)
   
   res.json({ color: 'green', message: `${send}', notify: 'false',
     message_format: "html"})
