@@ -6,13 +6,15 @@ const app = express()
 app.use(bodyParser.json()) 
 app.use(express.static('public'))
 
-app.post("/thlp", function(req, res) {
+app.post("/link", function(req, res) {
 
       var body = req.body.item.message.message
       var name = req.body.item.message.from.name
- 
+      
+var cut = body.slice(4)
 var sn = "https://umnprd.service-now.com/nav_to.do?uri=incident.do?sysparm_query=number="
-var send = sn.concat(body)
+var send = sn.concat(cut)
+
 
 var link = "&lt;a href='" + send + "&gt; INC" + body + "&lt;/a&gt;"
   
