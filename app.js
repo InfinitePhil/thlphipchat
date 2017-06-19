@@ -8,11 +8,11 @@ app.use(express.static('public'))
 
 app.post("/link", function(req, res) {
 
-      var value = req.body.item.message.message
+      var body = req.body.item.message.message
       var name = req.body.item.message.from.name
  
 var sn = "https://umnprd.service-now.com/nav_to.do?uri=incident.do?sysparm_query=number="
-var send = sn.concat(message)
+var send = sn.concat(body)
   
   res.json({ color: 'green', message: `<a href=" ${send} ">Link</a>`, notify: 'false', message_format: 'html'})
 })
