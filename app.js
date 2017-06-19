@@ -5,7 +5,7 @@ const app = express()
 app.use(bodyParser.json()) 
 app.use(express.static('public'))
 
-app.post("/hipchatbot", (req, res) => {
+app.post("/link", (req, res) => {
   const message     = req.body.item.message.message
   const name        = req.body.item.message.from.name
  
