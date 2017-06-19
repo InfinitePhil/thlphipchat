@@ -9,7 +9,7 @@ var app = express();
 app.use(bodyParser.json()); 
 
 // Route that Hipchat enters
-app.post("/hipchatbot", function(req, res) {
+app.post("/link", function(req, res) {
 
   // Gets the message value from the Hipchat JSON webhook
   var message = req.body.item.message.message.image;
