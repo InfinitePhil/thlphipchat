@@ -6,7 +6,7 @@ const app = express()
 app.use(bodyParser.json()) 
 app.use(express.static('public'))
 
-app.post("/link", function(req, res) {
+app.post("/thlp", function(req, res) {
 
       var body = req.body.item.message.message
       var name = req.body.item.message.from.name
