@@ -14,7 +14,7 @@ app.post("/link", function(req, res) {
 var sn = "https://umnprd.service-now.com/nav_to.do?uri=incident.do?sysparm_query=number="
 var send = sn.concat(body)
 
-var link = "<a href='" + send + "> INC" + body + "</a>"
+var link = "&lt;a href='" + send + "&gt; INC" + body + "&lt;/a&gt;"
   
   res.json({ color: 'green', message: `${link}`, notify: 'false', message_format: 'html'})
 })
