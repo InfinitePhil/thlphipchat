@@ -16,7 +16,7 @@ var sn = "https://umnprd.service-now.com/nav_to.do?uri=incident.do?sysparm_query
 var send = sn.concat(cut)
 
 
-var link = "&lt;a href='" + send + "&gt;" + cut + "&lt;/a&gt;"
+var link = "&lt;a href=&quot" + send + &quot&gt;" + cut + "&lt;/a&gt;"
   
   res.json({ color: 'green', message: `${link}`, notify: 'false'})
 })
