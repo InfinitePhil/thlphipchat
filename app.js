@@ -36,7 +36,6 @@ switch(type) {
 var send = link.concat(cut)           
  
   res.json({ color: 'green', message: `<a href="${send}${cut}"> Here is ${cut}, ${name} :)</a>`, notify: 'false'})
-})
 
 const port = Number(process.env.PORT || 7000)
 if(!module.parent) { 
