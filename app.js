@@ -30,10 +30,9 @@ app.post("/link", (req, res) => {
 			text = "Either that isn't an INC, KB, or CON - or Phil coded me wrong..."
 	}
 
-	var send = link.concat(cut)
 
 	res.json({
-		message: `<a href="${send}${cut}"> Here is ${cut}, ${name} :)</a>`
+		message: `<a href=" ${link} ${cut}"> Here is ${cut}, ${name} :)</a>`
 	})
 })
 
