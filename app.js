@@ -31,7 +31,7 @@ switch(type) {
             break;
         default:
         text = "Either that isn't an INC, KB, or CON - or Phil coded me wrong...";
-            
+           }
             
 var send = link.concat(cut)           
  
