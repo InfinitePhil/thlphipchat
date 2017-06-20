@@ -17,22 +17,25 @@ app.post("/link", (req, res) => {
 	var link = "phil"
 
 	switch (type) {
-		case "inc":
+		case "i":
 			var link = inc
 			break
-		case "kb":
+		case "k":
 			var link = kb
 			break
-		case "con":
+		case "c":
 			var link = con
 			break
 		default:
-			text = "Either that isn't an INC, KB, or CON - or Phil coded me wrong..."
+			res.json({
+		message: "Either that isn't an INC, KB, or CON - or Phil coded me wrong..."
+	})
+		
 	}
 
 
 	res.json({
-		message: `<a href="https://umnprd.service-now.com/nav_to.do?uri=${link} ${cut}"> Here is ${cut}, ${name} :)</a>`
+		message: `<a href="https://umnprd.service-now.com/nav_to.do?uri=${link}${cut}"> Here is ${cut}, ${name} :)</a>`
 	})
 })
 
