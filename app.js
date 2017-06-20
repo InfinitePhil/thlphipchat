@@ -16,6 +16,20 @@ app.post("/link", (req, res) => {
 	var con = "textsearch.do?sysparm_search=searchterm"
 	var link = "phil"
 	var firstname = name.split(' ')[0]
+	
+	switch (firstname) {
+		case "Philippos":
+			res.json({
+				message: "Hi Dad! <3 :)",
+				color: 'yellow'
+				})
+		default:
+				
+		var idk = "idk"
+				
+			
+			
+			 }
 
 	switch (type) {
 		case "I":
@@ -37,7 +51,7 @@ app.post("/link", (req, res) => {
 
 
 	res.json({
-		message: `<a href="https://umnprd.service-now.com/nav_to.do?uri=${link}${cut}"> Here is ${cut}, ${firstname} :)</a> @kacey++`,
+		message: `<a href="https://umnprd.service-now.com/nav_to.do?uri=${link}${cut}"> Here is ${cut}, ${firstname} :)</a>`,
 		color: 'green'
 	})
 })
