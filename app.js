@@ -11,9 +11,9 @@ app.post("/link", (req, res) => {
 
 	var cut = body.slice(6)
 	var type = cut.charAt(0)
-	var inc = "https://umnprd.service-now.com/nav_to.do?uri=incident.do?sysparm_query=number="
-	var kb = "https://umnprd.service-now.com/nav_to.do?uri=%2Fkb_view.do%3Fsysparm_article%3D"
-	var con = "https://umnprd.service-now.com/nav_to.do?uri=textsearch.do?sysparm_search=searchterm"
+	var inc = "incident.do?sysparm_query=number="
+	var kb = "%2Fkb_view.do%3Fsysparm_article%3D"
+	var con = "textsearch.do?sysparm_search=searchterm"
 	var link = "phil"
 
 	switch (type) {
@@ -32,7 +32,7 @@ app.post("/link", (req, res) => {
 
 
 	res.json({
-		message: `<a href=" ${link} ${cut}"> Here is ${cut}, ${name} :)</a>`
+		message: `<a href="https://umnprd.service-now.com/nav_to.do?uri=${link} ${cut}"> Here is ${cut}, ${name} :)</a>`
 	})
 })
 
