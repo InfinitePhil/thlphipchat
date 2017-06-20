@@ -15,7 +15,7 @@ app.post("/link", (req, res) => {
 	var kb = "%2Fkb_view.do%3Fsysparm_article%3D"
 	var con = "textsearch.do?sysparm_search=searchterm"
 	var link = "phil"
-	var firstname = name.Split(' ')[0];
+	var firstname = name.split(' ')[0]
 
 	switch (type) {
 		case "I":
