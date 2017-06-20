@@ -23,6 +23,13 @@ app.post("/link", (req, res) => {
 				message: "Hi Dad! <3 :)",
 				color: 'yellow'
 				})
+			
+		case "Kacey":
+			res.json({
+				message: "Bars...?",
+				color: 'blue'
+				})	
+			
 		default:
 				
 		var idk = "idk"
