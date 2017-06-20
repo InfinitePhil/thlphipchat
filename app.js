@@ -15,6 +15,7 @@ app.post("/link", (req, res) => {
 	var kb = "%2Fkb_view.do%3Fsysparm_article%3D"
 	var con = "textsearch.do?sysparm_search=searchterm"
 	var link = "phil"
+	var firstname = name.Split(' ')[0];
 
 	switch (type) {
 		case "I":
@@ -36,7 +37,7 @@ app.post("/link", (req, res) => {
 
 
 	res.json({
-		message: `<a href="https://umnprd.service-now.com/nav_to.do?uri=${link}${cut}"> Here is ${cut}, ${name} :)</a>`,
+		message: `<a href="https://umnprd.service-now.com/nav_to.do?uri=${link}${cut}"> Here is ${cut}, ${firstname} :)</a>`,
 		color: 'green'
 	})
 })
