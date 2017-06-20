@@ -17,13 +17,13 @@ app.post("/link", (req, res) => {
 	var link = "phil"
 
 	switch (type) {
-		case "i":
+		case "I":
 			var link = inc
 			break
-		case "k":
+		case "K":
 			var link = kb
 			break
-		case "c":
+		case "C":
 			var link = con
 			break
 		default:
