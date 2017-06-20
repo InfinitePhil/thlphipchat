@@ -37,7 +37,7 @@ app.post("/link", (req, res) => {
 
 
 	res.json({
-		message: `<a href="https://umnprd.service-now.com/nav_to.do?uri=${link}${cut}"> Here is ${cut}, ${firstname} :)</a>`,
+		message: `<a href="https://umnprd.service-now.com/nav_to.do?uri=${link}${cut}"> Here is ${cut}, ${firstname} :) @phil++</a>`,
 		color: 'green'
 	})
 })
