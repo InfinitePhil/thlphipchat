@@ -6,7 +6,7 @@ app.use(bodyParser.json())
 app.use(express.static('public'))
 
 app.post("/link", (req, res) => {
-	var message = req.body.item.message.message
+	var body = req.body.item.message.message
 	var name = req.body.item.message.from.name
 
 	var cut = body.slice(6)
