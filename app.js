@@ -28,14 +28,16 @@ app.post("/link", (req, res) => {
 			break
 		default:
 			res.json({
-		message: "Either that isn't an INC, KB, or CON - or Phil coded me wrong..."
-	})
-		
+				message: "Either that isn't an INC, KB, or CON - or Phil coded me wrong... :(",
+				color: 'red'
+			})
+
 	}
 
 
 	res.json({
-		message: `<a href="https://umnprd.service-now.com/nav_to.do?uri=${link}${cut}"> Here is ${cut}, ${name} :)</a>`
+		message: `<a href="https://umnprd.service-now.com/nav_to.do?uri=${link}${cut}"> Here is ${cut}, ${name} :)</a>`,
+		color: 'red'
 	})
 })
 
