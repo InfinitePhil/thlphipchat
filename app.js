@@ -13,30 +13,11 @@ app.post("/link", (req, res) => {
 	var type = cut.charAt(0)
 	var inc = "incident.do?sysparm_query=number="
 	var kb = "%2Fkb_view.do%3Fsysparm_article%3D"
-	var con = "textsearch.do?sysparm_search=searchterm"
-	var link = "phil"
+	var con = "textsearch.do?sysparm_search="
+	var link = "initialize"
 	var firstname = name.split(' ')[0]
 	
-	switch (firstname) {
-		case "Philippos":
-			res.json({
-				message: "Hi Dad! <3 :)",
-				color: 'yellow'
-				})
-			
-		case "Kacey":
-			res.json({
-				message: "Bars...?",
-				color: 'blue'
-				})	
-			
-		default:
-				
-		var idk = "idk"
-				
-			
-			
-			 }
+
 
 	switch (type) {
 		case "I":
@@ -48,6 +29,12 @@ app.post("/link", (req, res) => {
 		case "C":
 			var link = con
 			break
+		case "?":
+			res.json({
+				message: "Simply type /link followed by a full INC, KB, or CON number (including it's descriptor i.e. ‘INC’) and INCBot will return a link to the page. Note that the bot cannot check whether it is a valid number, only that it is formatted correctly. Put together by Phil, 2017.",
+				color: 'yellow'
+			})
+		
 		default:
 			res.json({
 				message: "Either that isn't an INC, KB, or CON - or Phil coded me wrong... :(",
