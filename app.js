@@ -22,15 +22,15 @@ var link = "phil"
 switch(type) {
         case "inc":
             var link = inc
-            break;
+            break
         case "kb":
             var link = kb
-            break;
+            break
         case "con":
             var link = con
-            break;
+            break
         default:
-        text = "Either that isn't an INC, KB, or CON - or Phil coded me wrong...";
+        text = "Either that isn't an INC, KB, or CON - or Phil coded me wrong..."
            }
             
 var send = link.concat(cut)           
