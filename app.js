@@ -10,7 +10,7 @@ app.post("/link", (req, res) => {
 	var name = req.body.item.message.from.name
 
 
-	var result = body.substring(body.indexOf('link') + 1);
+	var cut = body.substring(body.indexOf('link') + 1)
 	var type = cut.charAt(0)
 	var inc = "incident.do?sysparm_query=number="
 	var kb = "%2Fkb_view.do%3Fsysparm_article%3D"
