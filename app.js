@@ -1,6 +1,5 @@
-const
-  bodyParser = require('body-parser'),
-  express = require('express'),
+var express = require('express');
+var bodyParser = require('body-parser');
   
 
 // Create a new instance of express
