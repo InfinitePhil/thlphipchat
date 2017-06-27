@@ -11,5 +11,5 @@ var urlencodedParser = bodyParser.urlencoded({ extended: false })
  
 // POST /link gets urlencoded bodies 
 app.post('/link', urlencodedParser, function (req, res) {
-  var messageText = req.body.message.message,
+  var messageText = req.body.message.message
 })
