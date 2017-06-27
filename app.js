@@ -16,7 +16,7 @@ app.post('/link', jsonParser, function (req, res) {
   var cleanText = messageText.split(' ')[0];
   
   // Message posted back to Hipchat
-  res.json({ message: `${messageText}`,
+  res.json({ message: `${cleanText}`,
 				color: 'green'   });
 
 });
