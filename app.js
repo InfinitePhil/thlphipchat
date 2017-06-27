@@ -12,7 +12,7 @@ app.post('/link', jsonParser, function (req, res) {
 
   // Gets the message value from the Hipchat JSON webhook
   var fullmessageText = req.body.item.message.message;
-  var messageText = fullmessageText.split('/link')[0];
+  var messageText = fullmessageText.split('/link ')[1];
   
   // Message posted back to Hipchat
   res.json({ message: `${messageText}`,
