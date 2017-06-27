@@ -8,7 +8,7 @@ var app = express()
 var jsonParser = bodyParser.json()
 
 // create application/x-www-form-urlencoded parser
-var urlencodedParser = bodyParser.urlencoded({ extended: false })
+var urlencodedParser = bodyParser.text({ extended: false })
 
 //app port
 app.set('port', process.env.PORT || 7000);
