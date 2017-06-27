@@ -2,11 +2,17 @@ const bodyParser = require('body-parser');
 const express = require('express');
 
 const app = express();
+
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
+
 app.use(bodyParser.json());
 app.use(express.static('public'));
 
-app.post('/link', function(req, res) {
-	var body = req.body.item.message.message;
+
+app.post("/link",function(req,res) {
+	var messagetext = req.body.item.message.message;
 	var name = req.body.item.message.from.name;
 
 
@@ -23,7 +29,7 @@ app.post('/link', function(req, res) {
 	
 
 	res.json({
-		message: `<a href="https://umnprd.service-now.com/nav_to.do?uri=${link}${cut}"> Here is ${body}, ${firstname} :)</a>`,
+		message: `<a href="https://umnprd.service-now.com/nav_to.do?uri=${link}${cut}"> Here is ${messagetext}, ${firstname} :)</a>`,
 		color: 'green'
 	});
 });
