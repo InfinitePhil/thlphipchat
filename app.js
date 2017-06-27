@@ -12,12 +12,13 @@ app.use(bodyParser.json());
 app.post("/link", function(req, res) {
 
   // Gets the message value from the Hipchat JSON webhook
-  var message = req.body.item.message.message.image;
+  var messageText = req.body.item.message.message;
   
   // Message posted back to Hipchat
-  res.json({ image: "https://static.independent.co.uk/s3fs-public/thumbnails/image/2013/01/24/12/v2-cute-cat-picture.jpg"   });
-
-});
+  res.json({
+		message: `${messageText}`,
+		color: 'green'
+	});
 
 // Giving the app a port number to listen on - use 3000 by default 
 var port = Number(process.env.PORT || 3000);
