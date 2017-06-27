@@ -1,19 +1,20 @@
-var express = require('express');
-var bodyParser = require('body-parser');
+var express = require('express')
+var bodyParser = require('body-parser')
   
-
 // Create a new instance of express
- app = express();
+var app = express()
 
-// Tell express to use the body-parser middleware and to not parse extended bodies
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json({ extended: false }));
+// create application/json parser
+var jsonParser = bodyParser.json()
+
+// create application/x-www-form-urlencoded parser
+var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 //app port
 app.set('port', process.env.PORT || 7000);
 
-//POST /obba
-app.post('/link', function (req, res) {
+//POST /link
+app.post('/link', urlencodedParser, function (req, res) {
  
 	var data = req.body.item.message.message;
 	var name = req.body.item.message.from.name;
