@@ -1,12 +1,15 @@
+var express = require('express')
 var bodyParser = require('body-parser')
-app.use( bodyParser.json() );       // to support JSON-encoded bodies
-app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
-  extended: true
-}));
-
-app.use(express.json());       // to support JSON-encoded bodies
-app.use(express.urlencoded()); // to support URL-encoded bodies
-
-app.post('/link', function(req, res) {
-    var name = req.body.name;
-});
+ 
+var app = express()
+ 
+// create application/json parser 
+var jsonParser = bodyParser.json()
+ 
+// create application/x-www-form-urlencoded parser 
+var urlencodedParser = bodyParser.urlencoded({ extended: false })
+ 
+// POST /link gets urlencoded bodies 
+app.post('/link', urlencodedParser, function (req, res) {
+  var messageText = req.body.message.message,
+})
