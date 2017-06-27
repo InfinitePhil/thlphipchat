@@ -1,10 +1,6 @@
 const
   bodyParser = require('body-parser'),
   express = require('express'),
-  https = require('https'),
-  request = require('request'),
-  obba_obj = require("./obba.js"),
-  translate_obj = require("./translate.js"),
 
 // Create a new instance of express
  app = express();
@@ -43,5 +39,3 @@ res.json({
 app.listen(app.get('port'), function () {
   console.log('Node app is running on port', app.get('port'));
 });
-
-module.exports = app;
