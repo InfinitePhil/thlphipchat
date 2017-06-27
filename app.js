@@ -5,10 +5,10 @@ var express = require('express');
 // Calling the Express module
 var app = express();
 
-var urlencodedParser = bodyParser.urlencoded({ extended: false })
+var jsonParser = bodyParser.json({ extended: false })
 
 // POST /login gets urlencoded bodies
-app.post('/link', urlencodedParser, function (req, res) {
+app.post('/link', jsonParser, function (req, res) {
 
   // Gets the message value from the Hipchat JSON webhook
   var messageText = req.body.item.message.message;
