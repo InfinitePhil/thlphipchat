@@ -1,6 +1,5 @@
-const
-  express = require('express')
-  bodyParser = require('body-parser')
+var bodyParser = require('body-parser');
+var app = express();
   
 
 // Create a new instance of express
@@ -9,7 +8,6 @@ const
 // Tell express to use the body-parser middleware and to not parse extended bodies
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json({ extended: false }));
-app.use(bodyParser.raw({ extended: false }));
 
 //app port
 app.set('port', process.env.PORT || 7000);
@@ -17,8 +15,8 @@ app.set('port', process.env.PORT || 7000);
 //POST /obba
 app.post('/link', function (req, res) {
  
-	var data =  req.body.item.message.message;
-	var name =  req.body.item.message.from.name;
+	var data = req.body.item.message.message;
+	var name = req.body.item.message.from.name;
 	var cut = body.substring(body.indexOf('link') + 1);
 	var type = cut.charAt(0);
 	var inc = "incident.do?sysparm_query=number=";
