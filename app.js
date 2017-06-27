@@ -1,41 +1,46 @@
-var express = require('express')
-var bodyParser = require('body-parser')
-  
-// Create a new instance of express
-var app = express()
+var express = require('express');
 
-// create application/json parser
-var jsonParser = bodyParser.json()
+/*
+ * body-parser is a piece of express middleware that 
+ *   reads a form's input and stores it as a javascript
+ *   object accessible through `req.body` 
+ *
+ * 'body-parser' must be installed (via `npm install --save body-parser`)
+ * For more info see: https://github.com/expressjs/body-parser
+ */
+var bodyParser = require('body-parser');
 
-// create application/x-www-form-urlencoded parser
-var urlencodedParser = bodyParser.text({ extended: false })
+// create our app
+var app = express();
 
-//app port
-app.set('port', process.env.PORT || 7000);
+// instruct the app to use the `bodyParser()` middleware for all routes
+app.use(bodyParser());
 
-//POST /link
-app.post('/link', urlencodedParser, function (req, res) {
- 
-	var data = req.body.item.message.message;
-	var name = req.body.item.message.from.name;
-	var cut = body.substring(body.indexOf('link') + 1);
-	var type = cut.charAt(0);
-	var inc = "incident.do?sysparm_query=number=";
-	var kb = "%2Fkb_view.do%3Fsysparm_article%3D";
-	var con = "textsearch.do?sysparm_search=";
-	var link = "initialize";
-	var firstname = name.split(' ')[0];
-
-res.json({
-		message: `<a href="https://umnprd.service-now.com/nav_to.do?uri=${link}${cut}"> Here is ${data}, ${firstname} :)</a>`,
-		color: 'green'
-	});
-    
-  
-});  
-
-
-// Tell our app to listen on port 
-app.listen(app.get('port'), function () {
-  console.log('Node app is running on port', app.get('port'));
+// A browser's default method is 'GET', so this
+// is the route that express uses when we visit
+// our site initially.
+app.get('/link', function(req, res){
+  // The form's action is '/' and its method is 'POST',
+  // so the `app.post('/', ...` route will receive the
+  // result of our form
+  var html = '<form action="/" method="post">' +
+               'Enter your name:' +
+               '<input type="text" name="userName" placeholder="..." />' +
+               '<br>' +
+               '<button type="submit">Submit</button>' +
+            '</form>';
+               
+  res.send(html);
 });
+
+// This route receives the posted form.
+// As explained above, usage of 'body-parser' means
+// that `req.body` will be filled in with the form elements
+app.post('/link', function(req, res){
+  var userName = req.body.userName;
+  var html = 'Hello: ' + userName + '.<br>' +
+             '<a href="/">Try again.</a>';
+  res.send(html);
+});
+
+app.listen(80);
