@@ -1,21 +1,27 @@
-const bodyParser = require('body-parser');
-const express = require('express');
+const
+  bodyParser = require('body-parser'),
+  express = require('express'),
+  https = require('https'),
+  request = require('request'),
+  obba_obj = require("./obba.js"),
+  translate_obj = require("./translate.js"),
 
-const app = express();
+// Create a new instance of express
+ app = express();
 
-app.use(bodyParser.urlencoded({
-    extended: true
-}));
+// Tell express to use the body-parser middleware and to not parse extended bodies
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json({ extended: false }));
+app.use(bodyParser.raw({ extended: false }));
 
-app.use(bodyParser.json());
-app.use(express.static('public'));
+//app port
+app.set('port', process.env.PORT || 7000);
 
-
-app.post("/link",function(req,res) {
-	var messagetext = req.body.item.message.message;
-	var name = req.body.item.message.from.name;
-
-
+//POST /obba
+app.post('/link', function (req, res) {
+ 
+	var data =  req.body.item.message.message;
+	var name =  req.body.item.message.from.name;
 	var cut = body.substring(body.indexOf('link') + 1);
 	var type = cut.charAt(0);
 	var inc = "incident.do?sysparm_query=number=";
@@ -24,19 +30,16 @@ app.post("/link",function(req,res) {
 	var link = "initialize";
 	var firstname = name.split(' ')[0];
 
-
-
-	
-
-	res.json({
-		message: `<a href="https://umnprd.service-now.com/nav_to.do?uri=${link}${cut}"> Here is ${messagetext}, ${firstname} :)</a>`,
+res.json({
+		message: `<a href="https://umnprd.service-now.com/nav_to.do?uri=${link}${cut}"> Here is ${data}, ${firstname} :)</a>`,
 		color: 'green'
 	});
+    
+  
+});  
+
+
+// Tell our app to listen on port 
+app.listen(app.get('port'), function () {
+  console.log('Node app is running on port', app.get('port'));
 });
-
-const port = Number(process.env.PORT || 7000)
-if (!module.parent) {
-	app.listen(port)
-};
-
-module.exports = app;
