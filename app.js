@@ -15,6 +15,7 @@ app.post('/link', jsonParser, function (req, res) {
 	var name = req.body.item.message.from.name;
   var messageText = fullmessageText.split('/link ')[1];
   var cleanText = messageText.split(' ')[0];
+	var type = cleanText.charAt(0);
   
 	var inc = "incident.do?sysparm_query=number=";
 	var kb = "%2Fkb_view.do%3Fsysparm_article%3D";
