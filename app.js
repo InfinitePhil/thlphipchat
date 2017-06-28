@@ -5,22 +5,24 @@ var express = require('express');
 // Calling the Express module
 var app = express();
 
-var jsonParser = bodyParser.json({ extended: false })
+var jsonParser = bodyParser.json({
+	extended: false
+})
 
 // POST /login gets urlencoded bodies
 app.post('/link', jsonParser, function (req, res) {
 
-  // Gets the message value from the Hipchat JSON webhook
-  var fullmessageText = req.body.item.message.message;
+	// Gets the message value from the Hipchat JSON webhook
+	var fullmessageText = req.body.item.message.message;
 	var name = req.body.item.message.from.name;
-  var messageText = fullmessageText.split('/link ')[1];
-  var cleanText = messageText.split(' ')[0];
+	var messageText = fullmessageText.split('/link ')[1];
+	var cleanText = messageText.split(' ')[0];
 	var type = cleanText.charAt(0);
-  
+
 	var inc = "incident.do?sysparm_query=number=";
 	var kb = "%2Fkb_view.do%3Fsysparm_article%3D";
 	var con = "textsearch.do?sysparm_search=";
-	
+
 	var link;
 	var firstname = name.split(' ')[0];
 
@@ -29,12 +31,26 @@ app.post('/link', jsonParser, function (req, res) {
 	switch (type) {
 		case "I":
 			var link = inc;
+			res.json({
+				message: `<a href="https://umnprd.service-now.com/nav_to.do?uri=${link}${cleanText}"> Here is ${cleanText}, ${firstname} :)</a>`,
+				color: 'green'
+			});
 			break;
+
 		case "K":
+
 			var link = kb;
+			res.json({
+				message: `<a href="https://umnprd.service-now.com/nav_to.do?uri=${link}${cleanText}"> Here is ${cleanText}, ${firstname} :)</a>`,
+				color: 'green'
+			});
 			break;
 		case "C":
 			var link = con;
+			res.json({
+				message: `<a href="https://umnprd.service-now.com/nav_to.do?uri=${link}${cleanText}"> Here is ${cleanText}, ${firstname} :)</a>`,
+				color: 'green'
+			});
 			break;
 		case "?":
 			res.json({
@@ -48,12 +64,8 @@ app.post('/link', jsonParser, function (req, res) {
 				color: 'red'
 			});
 
-	}	
-	
-	
-  // Message posted back to Hipchat
-  res.json({ message: `<a href="https://umnprd.service-now.com/nav_to.do?uri=${link}${cleanText}"> Here is ${cleanText}, ${firstname} :)</a>`,
-				color: 'green'   });
+	}
+
 
 });
 
