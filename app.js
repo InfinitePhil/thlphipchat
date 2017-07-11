@@ -41,6 +41,7 @@ app.post('/link', jsonParser, function (req, res) {
 			res.json({
 				message: `<a href="https://umnprd.service-now.com/nav_to.do?uri=${link}${cleanText}"> Here is ${cleanText}, ${firstName} >:(</a>`,
 				color: 'green'
+				message_format: 'text'
 			});
 			break;
 
@@ -50,6 +51,7 @@ app.post('/link', jsonParser, function (req, res) {
 			res.json({
 				message: `<a href="https://umnprd.service-now.com/nav_to.do?uri=${link}${cleanText}"> Here is ${cleanText}, ${firstName} >:(</a>`,
 				color: 'green'
+				message_format: 'text'
 			});
 			break;
 		case "C":
@@ -57,24 +59,28 @@ app.post('/link', jsonParser, function (req, res) {
 			res.json({
 				message: `<a href="https://umnprd.service-now.com/nav_to.do?uri=${link}${cleanText}"> Here is ${cleanText}, ${firstName} >:(</a>`,
 				color: 'green'
+				message_format: 'text'
 			});
 			break;
 		case "?":
 			res.json({
 				message: "Simply type /link followed by a full INC, KB, or CON number (including it's descriptor i.e. ‘INC’) and INCBot will return a link to the page. Note that the bot cannot check whether it is a valid number, only that it is formatted correctly. Put together by Phil, 2017. Version 2.1",
 				color: 'yellow'
+				message_format: 'text'
 			});
 			
 		case "!":
 			res.json({
-				message: "@here Help on Phones please! :)",
+				message: "@JoeyGundy ---",
 				color: 'purple'
+				message_format: 'text'
 			});
 
 		default:
 			res.json({
 				message: "Either that isn't an INC, KB, or CON - or Phil coded me wrong :(",
 				color: 'red'
+				message_format: 'text'
 			});
 	}
 
