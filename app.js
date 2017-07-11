@@ -71,7 +71,7 @@ app.post('/link', jsonParser, function (req, res) {
 			
 		case "!":
 			res.json({
-				message: "@JoeyGundy ---",
+				message: "@Phil +++",
 				color: 'purple',
 				message_format: 'text'
 			});
