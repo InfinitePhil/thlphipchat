@@ -40,8 +40,8 @@ app.post('/link', jsonParser, function (req, res) {
 			var link = inc;
 			res.json({
 				message: `<a href="https://umnprd.service-now.com/nav_to.do?uri=${link}${cleanText}"> Here is ${cleanText}, ${firstName} >:(</a>`,
-				color: 'green',
-				message_format: 'text'
+				color: 'green'
+			
 			});
 			break;
 
@@ -50,16 +50,16 @@ app.post('/link', jsonParser, function (req, res) {
 			var link = kb;
 			res.json({
 				message: `<a href="https://umnprd.service-now.com/nav_to.do?uri=${link}${cleanText}"> Here is ${cleanText}, ${firstName} >:(</a>`,
-				color: 'green',
-				message_format: 'text'
+				color: 'green'
+			
 			});
 			break;
 		case "C":
 			var link = con;
 			res.json({
 				message: `<a href="https://umnprd.service-now.com/nav_to.do?uri=${link}${cleanText}"> Here is ${cleanText}, ${firstName} >:(</a>`,
-				color: 'green',
-				message_format: 'text'
+				color: 'green'
+				
 			});
 			break;
 		case "?":
