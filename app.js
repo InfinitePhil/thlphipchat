@@ -64,6 +64,12 @@ app.post('/link', jsonParser, function (req, res) {
 				message: "Simply type /link followed by a full INC, KB, or CON number (including it's descriptor i.e. ‘INC’) and INCBot will return a link to the page. Note that the bot cannot check whether it is a valid number, only that it is formatted correctly. Put together by Phil, 2017. Version 2.1",
 				color: 'yellow'
 			});
+			
+		case "!":
+			res.json({
+				message: "@here Help on Phones please! :)",
+				color: 'purple'
+			});
 
 		default:
 			res.json({
