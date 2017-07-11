@@ -39,7 +39,7 @@ app.post('/link', jsonParser, function (req, res) {
 		case "I":
 			var link = inc;
 			res.json({
-				message: `<a href="https://umnprd.service-now.com/nav_to.do?uri=${link}${cleanText}"> Here is ${cleanText}, ${firstName} >:(</a>`,
+				message: `<a href="https://umnprd.service-now.com/nav_to.do?uri=${link}${cleanText}"> Here is ${cleanText}, ${firstName}</a>`,
 				color: 'green'
 			
 			});
@@ -49,7 +49,7 @@ app.post('/link', jsonParser, function (req, res) {
 
 			var link = kb;
 			res.json({
-				message: `<a href="https://umnprd.service-now.com/nav_to.do?uri=${link}${cleanText}"> Here is ${cleanText}, ${firstName} >:(</a>`,
+				message: `<a href="https://umnprd.service-now.com/nav_to.do?uri=${link}${cleanText}"> Here is ${cleanText}, ${firstName}</a>`,
 				color: 'green'
 			
 			});
@@ -57,7 +57,7 @@ app.post('/link', jsonParser, function (req, res) {
 		case "C":
 			var link = con;
 			res.json({
-				message: `<a href="https://umnprd.service-now.com/nav_to.do?uri=${link}${cleanText}"> Here is ${cleanText}, ${firstName} >:(</a>`,
+				message: `<a href="https://umnprd.service-now.com/nav_to.do?uri=${link}${cleanText}"> Here is ${cleanText}, ${firstName}</a>`,
 				color: 'green'
 				
 			});
