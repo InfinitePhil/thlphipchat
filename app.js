@@ -69,16 +69,15 @@ app.post('/link', jsonParser, function (req, res) {
 				message_format: 'text'
 			});
 			
-		case "!":
+		case "P":
 			res.json({
-				message: "@here Help on phones, please!",
-				color: 'purple',
-				message_format: 'text'
+				message: `<a href="https://umnprd.service-now.com/nav_to.do?uri=${link}${cleanText}"> Here is ${cleanText}, ${firstName}</a>`,
+				color: 'green'
 			});
 
 		default:
 			res.json({
-				message: "Either that isn't an INC, KB, or CON - or Phil coded me wrong :(",
+				message: "Either that isn't an INC, KB, PRB, or a CON - or Phil coded me wrong :(",
 				color: 'red',
 				message_format: 'text'
 			});
