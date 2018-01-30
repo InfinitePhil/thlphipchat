@@ -14,29 +14,29 @@ app.post('/link', jsonParser, function (req, res) {
 	// Gets the full message value from the Hipchat JSON webhook inlcuding the /link
 	var fullmessageText = req.body.item.message.message;
 
-		// Removes the message text before and inluding the /link
-		var messageText = fullmessageText.split('/link ')[1];
+	// Removes the message text before and inluding the /link
+	var messageText = fullmessageText.split('/link ')[1];
 
-		// Removes the message text after the INC number
-		var cleanText = messageText.split(' ')[0];
+	// Removes the message text after the INC number
+	var cleanText = messageText.split(' ')[0];
 
-		// Gets first character of requested link to later determine what type it is - INC/KB etc.
-		var type = cleanText.charAt(0);
+	// Gets first 2 characters of requested link to later determine what type it is - INC/KB etc.
+	var type = cleanText.substring(0,2);
 	
 	// Gets the full name of the message author from the Hipchat JSON webhook
 	var fullName = req.body.item.message.from.name;
 
-		// Removes the middle and last names from name
-		var firstName = fullName.split(' ')[0];
+	// Removes the middle and last names from name
+	var firstName = fullName.split(' ')[0];
 
 	// Base URL's for each respective link. Var's to make it easy if they change
 	var inc = "incident.do?sysparm_query=number=";
 	var kb = "%2Fkb_view.do%3Fsysparm_article%3D";
-	var con = "textsearch.do?sysparm_search=";
+	var text_search = "textsearch.do?sysparm_search=";
 
 	//Switch based on type of link will send to the right res.json which will POST to Hipchat
 	switch (type) {
-		case "I":
+		case "IN":
 			var link = inc;
 			res.json({
 				message: `<a href="https://umnprd.service-now.com/nav_to.do?uri=${link}${cleanText}"> Here is ${cleanText}, ${firstName}</a>`,
@@ -45,7 +45,43 @@ app.post('/link', jsonParser, function (req, res) {
 			});
 			break;
 
-		case "K":
+		case "IT":
+			var link = text_search;
+			res.json({
+				message: `<a href="https://umnprd.service-now.com/nav_to.do?uri=${link}${cleanText}"> Here is ${cleanText}, ${firstName}</a>`,
+				color: 'green'
+			
+			});
+			break;
+
+		case "RI":
+			var link = text_search;
+			res.json({
+				message: `<a href="https://umnprd.service-now.com/nav_to.do?uri=${link}${cleanText}"> Here is ${cleanText}, ${firstName}</a>`,
+				color: 'green'
+			
+			});
+			break;
+
+		case "RE":
+			var link = text_search;
+			res.json({
+				message: `<a href="https://umnprd.service-now.com/nav_to.do?uri=${link}${cleanText}"> Here is ${cleanText}, ${firstName}</a>`,
+				color: 'green'
+			
+			});
+			break;
+
+		case "TA":
+			var link = text_search;
+			res.json({
+				message: `<a href="https://umnprd.service-now.com/nav_to.do?uri=${link}${cleanText}"> Here is ${cleanText}, ${firstName}</a>`,
+				color: 'green'
+			
+			});
+			break;
+
+		case "KB":
 
 			var link = kb;
 			res.json({
@@ -54,8 +90,8 @@ app.post('/link', jsonParser, function (req, res) {
 			
 			});
 			break;
-		case "C":
-			var link = con;
+		case "CO":
+			var link = text_search;
 			res.json({
 				message: `<a href="https://umnprd.service-now.com/nav_to.do?uri=${link}${cleanText}"> Here is ${cleanText}, ${firstName}</a>`,
 				color: 'green'
@@ -69,8 +105,8 @@ app.post('/link', jsonParser, function (req, res) {
 				message_format: 'text'
 			});
 			
-		case "P":
-			var link = con;
+		case "PR":
+			var link = text_search;
 			res.json({
 				message: `<a href="https://umnprd.service-now.com/nav_to.do?uri=${link}${cleanText}"> Here is ${cleanText}, ${firstName}</a>`,
 				color: 'green'
