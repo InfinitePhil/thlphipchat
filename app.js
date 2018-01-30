@@ -14,20 +14,20 @@ app.post('/link', jsonParser, function (req, res) {
 	// Gets the full message value from the Hipchat JSON webhook inlcuding the /link
 	var fullmessageText = req.body.item.message.message;
 
-		// Removes the message text before and inluding the /link
-		var messageText = fullmessageText.split('/link ')[1];
+	// Removes the message text before and inluding the /link
+	var messageText = fullmessageText.split('/link ')[1];
 
-		// Removes the message text after the INC number
-		var cleanText = messageText.split(' ')[0];
+	// Removes the message text after the INC number
+	var cleanText = messageText.split(' ')[0];
 
-		// Gets first character of requested link to later determine what type it is - INC/KB etc.
-		var type = cleanText.charAt(0);
+	// Gets first 2 characters of requested link to later determine what type it is - INC/KB etc.
+	var type = cleanText.substring(0,2);
 	
 	// Gets the full name of the message author from the Hipchat JSON webhook
 	var fullName = req.body.item.message.from.name;
 
-		// Removes the middle and last names from name
-		var firstName = fullName.split(' ')[0];
+	// Removes the middle and last names from name
+	var firstName = fullName.split(' ')[0];
 
 	// Base URL's for each respective link. Var's to make it easy if they change
 	var inc = "incident.do?sysparm_query=number=";
