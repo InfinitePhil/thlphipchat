@@ -81,6 +81,15 @@ app.post('/link', jsonParser, function (req, res) {
 			});
 			break;
 
+		case "CH":
+			var link = text_search;
+			res.json({
+				message: `<a href="https://umnprd.service-now.com/nav_to.do?uri=${link}${cleanText}"> Here is ${cleanText}, ${firstName}</a>`,
+				color: 'green'
+			
+			});
+			break;
+
 		case "KB":
 
 			var link = kb;
@@ -100,7 +109,7 @@ app.post('/link', jsonParser, function (req, res) {
 			break;
 		case "?":
 			res.json({
-				message: "Simply type /link followed by a full INC, KB, or CON number (including it's descriptor i.e. ‘INC’) and INCBot will return a link to the page. Note that the bot cannot check whether it is a valid number, only that it is formatted correctly. Put together by Phil, 2017. Version 2.1",
+				message: "Simply type /link followed by a full INC, KB, CON, PRB, RITM, REQ, ITSK, TASK, or CHG number (including it's descriptor i.e. ‘INC’) and INCBot will return a link to the page. Note that the bot cannot check whether it is a valid number, only that it is formatted correctly. Put together by Phil, 2017. Version 2.1",
 				color: 'yellow',
 				message_format: 'text'
 			});
@@ -114,7 +123,7 @@ app.post('/link', jsonParser, function (req, res) {
 
 		default:
 			res.json({
-				message: "Either that isn't an INC, KB, PRB, or a CON - or Phil coded me wrong :(",
+				message: "Either that isn't an INC, KB, PRB, CON, PRB, RITM, REQ, ITSK, TASK, or CHG number - or Phil coded me wrong :(",
 				color: 'red',
 				message_format: 'text'
 			});
