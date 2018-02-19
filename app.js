@@ -18,8 +18,11 @@ app.post('/link', jsonParser, function (req, res) {
 	var messageText = fullmessageText.split('/link ')[1];
 
 	// Removes the message text after the INC number
-	var cleanText = messageText.split(' ')[0];
+	var targetText = messageText.split(' ')[0];
 
+	// Removes any non-numeric and non-letter characters from before and within the text.
+	var cleanText = targetText.replace(/[^a-zA-Z0-9]/g, '');
+	
 	// Gets first 2 characters of requested link to later determine what type it is - INC/KB etc.
 	var type = cleanText.substring(0,2);
 	
