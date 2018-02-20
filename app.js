@@ -126,7 +126,7 @@ app.post('/link', jsonParser, function (req, res) {
 
 		default:
 			res.json({
-				message: "Either that isn't an INC, KB, PRB, CON, PRB, RITM, REQ, ITSK, TASK, or CHG number - or Phil coded me wrong :(",
+				message: "Either that isn't an INC, KB, PRB, CON, PRB, RITM, REQ, ITSK, TASK, or CHG number - or Phil coded me wrong :(  (Phil probably did everything right...! –Kyle)",
 				color: 'red',
 				message_format: 'text'
 			});
