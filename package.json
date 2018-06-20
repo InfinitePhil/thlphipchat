@@ -8,6 +8,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "pm2": "^2.10",
     "body-parser": "^1.17.2",
     "express": "^4.13.3"
   },
